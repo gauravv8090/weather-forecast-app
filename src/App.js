@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import './App.css';
 import Forecast from './components/Forecast';
 import Inputs from './components/Inputs';
@@ -8,12 +9,25 @@ import getFormattedData from './services/weatherServices';
 
 function App() {
 
-  const data=  async ()=>{
-     const ans=  await getFormattedData( {q: 'london'});
-     console.log(ans);
-  }
 
-  data();
+  const [query, setQuery]= useState({q:'hardoi'});
+  const [units, setUnits] = useState('metric');
+  const [weather, setWeather] = useState(null);
+
+
+  useEffect(()=>{
+
+    const data=  async ()=>{
+        await getFormattedData( {...query, units} ).then(data=>{
+          setWeather(data)
+        })
+   }
+ 
+   data();
+
+  }, [query, units])
+
+  
 
 
 
@@ -22,10 +36,16 @@ function App() {
     shadow-grey-400' >
       <TopButtons/>
       <Inputs/>
-      <TimeAndLocation/>
-      <TempAndDetails/>
-      <Forecast title='hourly forecast' />
-      <Forecast title='daily forecast' />
+
+      {weather && (
+        <div>
+          <TimeAndLocation weather={weather} />
+          <TempAndDetails weather={weather} />
+          <Forecast title='hourly forecast' items={weather.hourly} />
+          <Forecast title='daily forecast' items={weather.daily} />
+        </div>
+      )}
+
     </div>
   );
 }

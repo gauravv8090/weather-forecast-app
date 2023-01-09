@@ -62,7 +62,7 @@ const doFormatForcastWeather = (data) => {
   hourly = hourly.slice(1, 6).map(ele=>{
     return {
         title : fromatToLocalTime(ele.dt, timezone, 'hh:mm a'),
-        temp : ele.temp.day,
+        temp : ele.temp,
         icon : ele.weather[0].icon
     }
   });

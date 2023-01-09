@@ -1,15 +1,16 @@
 import React from "react";
+import { fromatToLocalTime } from "../services/weatherServices";
 
-function TimeAndLocation() {
+function TimeAndLocation( {weather:{dt, timezone, name, country}} ) {
   return (
     <div >
       <div className="flex items-center justify-center my-6">
         <p className=" text-slate-300 text-xl font-extralight">
-          Tuesday, 31 May 2022 | Location time: 12:46 PM
+          {fromatToLocalTime(dt, timezone)}
         </p>
       </div>
       <div className='flex items-center justify-center my-3'>
-        <p className='text-white text-3xl font-medium ' >Berlin, DE</p>
+        <p className='text-white text-3xl font-medium ' >{`${name}, ${country}`}</p>
       </div>
     </div>
   );
