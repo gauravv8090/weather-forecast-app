@@ -1,9 +1,13 @@
 import './App.css';
+import Inputs from './components/Inputs';
+import TopButtons from './components/TopButtons';
 
 function App() {
   return (
-    <div className="App">
-      <h1> Weather App </h1>
+    <div className='mx-auto max-w-screen-md mt-4 py-5 px-32 bg-gradient-to-br from-cyan-700 to-blue-700 h-fit shadow-xl 
+    shadow-grey-400' >
+      <TopButtons/>
+      <Inputs/>
     </div>
   );
 }
