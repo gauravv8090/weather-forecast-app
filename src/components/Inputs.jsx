@@ -7,7 +7,7 @@ function Inputs() {
       <div className="flex flex-row w-3/4  items-center justify-center space-x-4 ">
         <input
           type="text"
-          placeholder="Search..."
+          placeholder="Search for city..."
           className=" text-xl font-light p-2 focus:outline-none capitalize w-full shadow-xl placeholder:lowercase"
         />
         <UilSearch size={25} className='text-white cursor-pointer transition ease-out hover:scale-125' />
