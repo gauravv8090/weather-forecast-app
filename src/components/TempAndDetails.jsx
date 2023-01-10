@@ -5,6 +5,8 @@ import {
   UilWind,
   UilSun,
   UilSunset,
+  UilArrowDown,
+  UilArrowUp
 } from "@iconscout/react-unicons";
 import { fromatToLocalTime, iconUrlFromCode } from "../services/weatherServices";
 
@@ -72,12 +74,12 @@ function TempAndDetails({
           Set: <span className=" font-bold ml-1">{fromatToLocalTime(sunset, timezone, 'hh:mm a')}</span>
         </p>
         <p className=" font-light">|</p>
-        <UilSun />
+        < UilArrowUp />
         <p className=" font-light ">
           High: <span className=" font-bold ml-1">{`${temp_max.toFixed()}`}&deg;</span>
         </p>
         <p className=" font-light">|</p>
-        <UilSun />
+        <UilArrowDown />
         <p className=" font-light ">
           Low: <span className=" font-bold ml-1">{`${temp_min.toFixed()}`}&deg;</span>
         </p>
