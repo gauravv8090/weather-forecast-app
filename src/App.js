@@ -15,11 +15,10 @@ function App() {
   const formatBackground = () => {
     if (!weather) return "from-cyan-700 to-blue-700";
     const threshHold = units === "metric" ? 20 : 60;
-    if (weather.temp <= threshHold) return "from-cyan-700 to-blue-700";else{
-
+    if (weather.temp <= threshHold) return "from-cyan-700 to-blue-700";
+    else {
       return "from-yellow-700 to-orange-700";
     }
-
   };
 
   useEffect(() => {
